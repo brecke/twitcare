@@ -1,14 +1,12 @@
+from flask.ext.sqlalchemy import SQLAlchemy
+import flask.ext.restless
+
 from app import app
+from models import *
 
-# from auth import *
-# from admin import admin
-# from api import api
-# from models import *
-from views import *
-from database import *
-
-# admin.setup()
-# api.setup()
+# from api import *
+# from views import *
+# from database import *
 
 if __name__ == '__main__':
     app.run()

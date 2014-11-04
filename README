@@ -1,0 +1,31 @@
+# Readme
+
+## Setup
+
+Clone this repository
+
+```
+git clone ...
+```
+
+Install requirements
+
+```
+pip install -r requirements.txt
+```
+
+Then, edit the configuration in the minitwit.py file or export an MINITWIT_SETTINGS environment variable pointing to a configuration file.
+
+Fire up a shell and run this
+
+```
+flask --app=minitwit initdb
+```
+
+Now you can run:
+
+```
+flask --app=minitwit run
+```
+
+Check out http://localhost:5000/
