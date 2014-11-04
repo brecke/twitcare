@@ -4,7 +4,7 @@ import flask.ext.restless
 from app import app
 from models import *
 
-# from api import *
+from api import *
 # from views import *
 # from database import *
 

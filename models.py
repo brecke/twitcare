@@ -1,6 +1,7 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from app import app
 from werkzeug import check_password_hash, generate_password_hash
+from datetime import datetime
 
 SECRET_KEY = 'development key'
 db = SQLAlchemy(app)
@@ -36,7 +37,7 @@ class UserFollow(db.Model):
         self.followed = followed
 
     def __repr__(self):
-        return '<UserFollow %r (%s)>' % self.username, self.followed_by
+        return '<%s following %s>' % (self.followed_by.username, self.followed.username)
 
 class Message(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
@@ -44,9 +45,12 @@ class Message(db.Model):
     text = db.Column(db.String(140))
     pub_date = db.Column(db.DateTime)
 
-    def __init__(self, author_id, text, pub_date):
+    def __init__(self, author_id, text):
         self.author_id = author_id
         self.text = text
-        self.pub_date = pub_date
+        self.pub_date = datetime.now
+
+    def __repr__(self):
+        return '%s said %s' %(self.author_id, self.text)
 
 db.create_all()

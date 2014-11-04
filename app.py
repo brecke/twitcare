@@ -7,7 +7,6 @@ import time
 from hashlib import md5
 from flask import Flask, request, session, url_for, redirect, \
      render_template, abort, g, flash
-from datetime import datetime
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.restless import *
 from utils import *

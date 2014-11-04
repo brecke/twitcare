@@ -42,3 +42,11 @@ for i in laurinda.followed_list:
 
 for i in laurinda.followed_by_list:
     print "laurinda is followed by: ", i.followed_by
+
+# Laurinda asks for help!
+tweet = Message(laurinda.id, "I need help, somebody help me!")
+
+print "%s tweeted: %s " %(laurinda.username, tweet.text)
+print "This tweet reached her followers: ", ", ".join(map(str, laurinda.followed_by_list))
+
+# print ", ".join(map(str, L))
