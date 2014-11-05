@@ -48,7 +48,7 @@ class Message(db.Model):
     def __init__(self, author_id, text):
         self.author_id = author_id
         self.text = text
-        self.pub_date = datetime.now
+        self.pub_date = datetime.now()
 
     def __repr__(self):
         return '%s said %s' %(self.author_id, self.text)

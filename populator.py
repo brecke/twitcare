@@ -49,4 +49,7 @@ tweet = Message(laurinda.id, "I need help, somebody help me!")
 print "%s tweeted: %s " %(laurinda.username, tweet.text)
 print "This tweet reached her followers: ", ", ".join(map(str, laurinda.followed_by_list))
 
+db.session.add(tweet)
+db.session.commit()
+
 # print ", ".join(map(str, L))
