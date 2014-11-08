@@ -24,21 +24,6 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
-class UserFollow(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    followed_by_id = db.Column("followed_by_id", db.String(36), db.ForeignKey("user.id"))
-    followed_by = db.relationship("User", backref="followed_list",  primaryjoin=(User.id == followed_by_id))
-
-    followed_id = db.Column("followed_id", db.String(36), db.ForeignKey("user.id"))
-    followed = db.relationship("User", backref="followed_by_list",  primaryjoin=(User.id == followed_id))
-
-    def __init__(self, follower, followed):
-        self.followed_by = follower
-        self.followed = followed
-
-    def __repr__(self):
-        return '<%s following %s>' % (self.followed_by.username, self.followed.username)
-
 class Message(db.Model):
     message_id = db.Column(db.Integer, primary_key=True)
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))

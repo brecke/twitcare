@@ -4,9 +4,9 @@
 
 - -Send tweet via API-
 - -Replicate the tweet to the followers "timeline"-
-- API Authentication
+- API Authentication with flask-login
 - [Flask admin interface](https://github.com/mrjoes/flask-admin/)
 
-## Android app
+## Mobile app
 
 Everything. Including push notifications.

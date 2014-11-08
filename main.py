@@ -5,7 +5,7 @@ from app import app
 from models import *
 
 from api import *
-# from views import *
+from views import *
 # from database import *
 
 if __name__ == '__main__':

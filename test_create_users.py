@@ -15,9 +15,15 @@ print "user created: joana (nurse)"
 laurinda = User('laurinda', generate_password_hash('laurinda'), 'mail@example.com', 0, 1)
 print "user created: laurinda (old lady)"
 
+# Octavio
+octavio = User('octavio', generate_password_hash('octavio'), 'email@example.com', 0, 1)
+print "user created: octavio (old man)"
+
 # save it
 print "saving to database... "
 db.session.add(laurinda)
+db.session.add(octavio)
+
 db.session.add(miguel)
 db.session.add(joana)
 print "done."
@@ -26,30 +32,3 @@ print "done."
 print "committing changes... "
 db.session.commit()
 print "done."
-
-# now that miguel and joana have id's, we can associate them
-UserFollow(miguel, laurinda)
-UserFollow(joana, laurinda)
-
-# commit changes
-print "committing changes... "
-db.session.commit()
-print "done."
-
-# debug
-for i in laurinda.followed_list:
-    print "laurinda follows: ", i.followed
-
-for i in laurinda.followed_by_list:
-    print "laurinda is followed by: ", i.followed_by
-
-# Laurinda asks for help!
-tweet = Message(laurinda.id, "I need help, somebody help me!")
-
-print "%s tweeted: %s " %(laurinda.username, tweet.text)
-print "This tweet reached her followers: ", ", ".join(map(str, laurinda.followed_by_list))
-
-db.session.add(tweet)
-db.session.commit()
-
-# print ", ".join(map(str, L))
