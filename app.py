@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-    A microblogging API application highly inspired by minitwit
-"""
-
 import time
 from hashlib import md5
 from flask import Flask, request, session, url_for, redirect, \
@@ -21,7 +17,4 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('MINITWIT_SETTINGS', silent=True)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + DATABASE
-
-# add some filters to jinja
-app.jinja_env.filters['datetimeformat'] = format_datetime
-app.jinja_env.filters['gravatar'] = gravatar_url
+# app.secret_key = 'badjouras'
