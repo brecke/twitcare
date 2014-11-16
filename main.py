@@ -6,6 +6,7 @@ from models import *
 from api import *
 from views import *
 from authentication import *
+from admin import *
 
 if __name__ == '__main__':
     app.run()

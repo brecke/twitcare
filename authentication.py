@@ -9,7 +9,7 @@ SECRET_KEY = 'development key'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-@login_manager.request_loader
+# @login_manager.request_loader
 def load_user_from_request(request):
     # try to login using Basic Auth
     auth = request.authorization

@@ -1,4 +1,5 @@
 Flask==0.11-dev
+Flask-Admin==1.0.8
 Flask-Login==0.2.11
 Flask-Mail==0.9.1
 Flask-Principal==0.4.0
