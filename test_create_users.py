@@ -1,22 +1,22 @@
 from werkzeug import check_password_hash, generate_password_hash
-from models import User, Message, UserFollow, db
+from models import User, Message, db
 
-SECRET_KEY = 'development key'
+from authentication import SECRET_KEY
 
 # miguel is a doctor
-miguel = User('miguel', generate_password_hash('miguel'), 'me@miguellaginha.com', 1, 0)
+miguel = User('miguel', 'miguel', 'me@miguellaginha.com', 1, 0)
 print "user created: miguel (doctor)"
 
 # joana is a nurse
-joana = User('joana', generate_password_hash('joana'), 'heniswydryn@gmail.com', 1, 0)
+joana = User('joana', 'joana', 'heniswydryn@gmail.com', 1, 0)
 print "user created: joana (nurse)"
 
 # laurinda is a old lady that needs care
-laurinda = User('laurinda', generate_password_hash('laurinda'), 'mail@example.com', 0, 1)
+laurinda = User('laurinda', 'laurinda', 'mail@example.com', 0, 1)
 print "user created: laurinda (old lady)"
 
 # Octavio
-octavio = User('octavio', generate_password_hash('octavio'), 'email@example.com', 0, 1)
+octavio = User('octavio', 'octavio', 'email@example.com', 0, 1)
 print "user created: octavio (old man)"
 
 # save it

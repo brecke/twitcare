@@ -21,6 +21,28 @@ class User(db.Model):
         self.care_giver = care_giver
         self.care_taker = care_taker
 
+    @property
+    def is_authenticated(self):
+        return True
+        
+    def is_authenticated(self):
+        # print "is_authenticated: True"
+        return self.is_authenticated
+        
+    @property
+    def is_active(self):
+        return True
+
+    def is_active(self):
+        return self.is_active
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
     def __repr__(self):
         return '<User %r>' % self.username
 

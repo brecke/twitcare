@@ -2,6 +2,9 @@
 
 import requests
 import json
+from sys import argv
+
+script, user, password = argv
 
 url = 'http://localhost:5000/api/people'
 headers = {'Content-Type': 'application/json'}
@@ -10,7 +13,9 @@ filters = [dict(name='care_taker', op='equals', val=1)]
 # filters = [dict(name='care_giver', op='equals', val=1)]
 params = dict(q=json.dumps(dict(filters=filters)))
 
-response = requests.get(url, params=params, headers=headers)
+response = requests.get(url, params=params, headers=headers, auth=(user, password))
 
-assert response.status_code == 200
-print(response.json())
+if response.status_code == 200:
+    print(response.json())
+else:
+    print response
