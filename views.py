@@ -6,6 +6,9 @@ from flask.ext.security import login_required, LoginForm
 from authentication import SECRET_KEY, load_user_from_request, check_auth
 from models import User
 from flask.ext.login import current_user
+from stream_client import client
+import json
+from collections import namedtuple
 
 @app.route('/api/subscription', methods=['POST', 'DELETE'])
 def follow():
@@ -33,7 +36,16 @@ def follow():
 def login():
     if not check_auth(request):
         return Response(status=401)
-    return Response(status=200)
+
+    user = load_user_from_request(request) 
+    user_feed = client.feed('user:'+str(user.id))
+    # user.token = user_feed.token
+
+    UserStruct = namedtuple('UserStruct', 'id, username, email, care_giver, care_taker, token')
+    u = UserStruct(id=user.id, username=user.username, email=user.email, care_giver=user.care_giver, care_taker=user.care_taker, token=user_feed.token)
+    
+    # print json.dumps(json.dumps(u))
+    return Response(json.dumps(u),  mimetype='application/json', status=200)
 
 @app.route("/logout", methods=["POST"])
 @login_required
