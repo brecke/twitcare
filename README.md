@@ -21,3 +21,9 @@ python main.py
 ```
 
 Check out http://localhost:5000/api/user for instance.
+
+You may also use gunicorn as an alternative:
+
+```
+gunicorn --log-file - main:app
+```
