@@ -17,4 +17,4 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.from_envvar('MINITWIT_SETTINGS', silent=True)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + DATABASE
-# app.secret_key = 'badjouras'
+app.secret_key = 'badjouras'
