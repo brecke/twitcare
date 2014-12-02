@@ -25,4 +25,3 @@ six==1.8.0
 stream-python==1.1.1
 wsgiref==0.1.2
 psycopg2==2.5.4
-gunicorn==19.1.1
