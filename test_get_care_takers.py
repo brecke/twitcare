@@ -3,10 +3,11 @@
 import requests
 import json
 from sys import argv
+from server import SERVER_URL
 
 script, user, password = argv
 
-url = 'http://localhost:5000/api/people'
+url = 'http://'+SERVER_URL+'/api/people'
 headers = {'Content-Type': 'application/json'}
 
 filters = [dict(name='care_taker', op='equals', val=1)]

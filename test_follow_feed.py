@@ -8,10 +8,11 @@ import requests
 import json
 from datetime import datetime
 from sys import argv
+from server import SERVER_URL
 
 script, care_taker_username, username, password = argv
 
-url = 'http://localhost:5000/api/subscription'
+url = 'http://'+SERVER_URL+'/api/subscription'
 payload = {"care_taker_username": care_taker_username}
 response = requests.post(url, data=payload, auth=(username, password))
 
