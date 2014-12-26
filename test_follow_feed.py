@@ -1,5 +1,5 @@
 #
-# Usage: python test_follow_feed care_taker_username username password
+# Usage: python test_follow_feed care_seeker_username username password
 #
 # example: python test_follow_feed laurinda miguel <password_for_miguel>
 #
@@ -10,10 +10,10 @@ from datetime import datetime
 from sys import argv
 from server import SERVER_URL
 
-script, care_taker_username, username, password = argv
+script, care_seeker_username, username, password = argv
 
 url = 'http://'+SERVER_URL+'/api/subscription'
-payload = {"care_taker_username": care_taker_username}
+payload = {"care_seeker_username": care_seeker_username}
 response = requests.post(url, data=payload, auth=(username, password))
 
 print(response)

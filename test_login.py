@@ -9,5 +9,3 @@ script, user, password = argv
 
 url = 'http://'+SERVER_URL+'/login'
 r = requests.post(url, auth=(user, password))
-print r.json()
-print r

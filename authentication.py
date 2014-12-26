@@ -11,6 +11,7 @@ login_manager.init_app(app)
 
 # @login_manager.request_loader
 def load_user_from_request(request):
+
     # try to login using Basic Auth
     auth = request.authorization
     user = User.query.filter_by(username=auth.username).first()
@@ -22,6 +23,8 @@ def load_user_from_request(request):
     return None
 
 def check_auth(request):
+    if not request.authorization:
+        return False
     user = load_user_from_request(request)
     password = request.authorization.password
     # user = User.query.filter_by(username=username).first()

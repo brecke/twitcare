@@ -12,23 +12,31 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True)
     pw_hash = db.Column(db.String(120))
     care_giver = db.Column(db.Integer) # whether its a nurse or a doctor
-    care_taker = db.Column(db.Integer) # whether its a patient or not
+    care_seeker = db.Column(db.Integer) # whether its a patient or not
+    full_name = db.Column(db.String(120))
+    current_location = db.Column(db.String(120)) # coordinates
+    avatar = db.Column(db.String(255)) # this is just an URL
+    care_type = db.Column(db.String(255)) # example: sickness, condition, special care, etc
 
-    def __init__(self, username, password, email, care_giver, care_taker):
+    def __init__(self, username, password, email, care_giver, care_seeker, full_name, current_location, avatar, care_type):
         self.username = username
         self.pw_hash = generate_password_hash(password)
         self.email = email
         self.care_giver = care_giver
-        self.care_taker = care_taker
+        self.care_seeker = care_seeker
+        self.full_name = full_name
+        self.current_location = current_location
+        self.avatar = avatar
+        self.care_type = care_type
 
     @property
     def is_authenticated(self):
         return True
-        
+
     def is_authenticated(self):
         # print "is_authenticated: True"
         return self.is_authenticated
-        
+
     @property
     def is_active(self):
         return True

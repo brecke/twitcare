@@ -10,7 +10,7 @@ script, user, password = argv
 url = 'http://'+SERVER_URL+'/api/people'
 headers = {'Content-Type': 'application/json'}
 
-filters = [dict(name='care_taker', op='equals', val=1)]
+filters = [dict(name='care_seeker', op='equals', val=1)]
 # filters = [dict(name='care_giver', op='equals', val=1)]
 params = dict(q=json.dumps(dict(filters=filters)))
 

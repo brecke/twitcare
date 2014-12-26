@@ -23,7 +23,7 @@ class MyMessage(ModelView):
         
 class MyUser(ModelView):
     # Override displayed fields
-    column_list = ('id', 'username', 'email', 'care_giver', 'care_taker')
+    column_list = ('id', 'username', 'email', 'care_giver', 'care_seeker')
 
     def __init__(self, session, **kwargs):
         # You can pass name and other parameters if you want to
