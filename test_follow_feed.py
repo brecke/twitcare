@@ -1,18 +1,12 @@
 #
-# Usage: python test_follow_feed care_taker_username username password
+# Usage: python test_follow_feed care_seeker_username username password
 #
 # example: python test_follow_feed laurinda miguel <password_for_miguel>
 #
 
-import requests
-import json
-from datetime import datetime
 from sys import argv
+from utils import follow
 
-script, care_taker_username, username, password = argv
-
-url = 'http://localhost:5000/api/subscription'
-payload = {"care_taker_username": care_taker_username}
-response = requests.post(url, data=payload, auth=(username, password))
-
+script, care_seeker_username, username, password = argv
+response = go(care_seeker_username, username, password)
 print(response)

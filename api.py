@@ -14,7 +14,7 @@ def auth_func(*args, **kwargs):
     print "DEBUG: request.authorization, ", request.authorization
     if not check_auth(request):
         # return Response(status=401)
-        raise ProcessingException(description='Not authenticated!', code=401)
+        raise ProcessingException(description='Not authenticated!', code=403)
     return True
 
 # the user authenticates and we use the username to extract the author_id field for the message
