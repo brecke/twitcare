@@ -9,6 +9,7 @@ from flask.ext.login import current_user
 from stream_client import client
 import json
 from collections import namedtuple
+from flask_cors import *
 
 @app.route('/api/subscription', methods=['POST', 'DELETE'])
 def follow():
@@ -33,23 +34,13 @@ def follow():
         return Response(status=202)
 
 @app.route("/login", methods=["POST", "GET", "OPTIONS"])
+@cross_origin()
 def login():
 
-    # debug
-    print "login request coming in..."
-
     if not check_auth(request):
-        # return Response(status=401)
-        return Response(
-    'Could not verify your access level for that URL.\n'
-    'You have to login with proper credentials', 401,
-    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+        return Response(status=403)
 
     user = load_user_from_request(request)
-
-    # debug
-    print "authenticating user: ", user
-
     user_feed = client.feed('user:'+str(user.id))
     # user.token = user_feed.token
 
@@ -60,8 +51,9 @@ def login():
     return Response(json.dumps(u),  mimetype='application/json', status=200)
 
 @app.route("/logout", methods=["POST"])
+@cross_origin()
 @login_required
 def logout():
     logout_user()
-    flash("Logged out successfully.")
+    # flash("Logged out successfully.")
     return Response(status=200)
