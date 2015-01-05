@@ -20,7 +20,7 @@ Now you can run:
 python main.py
 ```
 
-Check out http://localhost:5000/api/user for instance.
+Check out http://localhost:5000/api/user for instance, or the ``/admin`` interface.
 
 You may also use gunicorn as an alternative:
 
