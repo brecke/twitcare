@@ -2,6 +2,8 @@ blinker==1.3
 click==3.3
 Flask==0.10.1
 Flask-Admin==1.0.8
+Flask-Cors==1.10.2
+flask-heroku==0.1.9
 Flask-HTTPAuth==2.3.0
 Flask-Login==0.2.11
 Flask-Mail==0.9.1
@@ -19,8 +21,9 @@ passlib==1.6.2
 python-dateutil==2.2
 python-mimeparse==0.1.4
 requests==2.4.3
-six==1.8.0
+six==1.9.0
 SQLAlchemy==0.9.8
 stream-python==1.1.1
 Werkzeug==0.9.6
 WTForms==2.0.1
+psycopg2==2.5.4
