@@ -4,19 +4,9 @@
 # Example: python test_red_button.py laurinda laurinda "help me please"
 #
 
-import requests
-import json
-from datetime import datetime
 from sys import argv
-from server import SERVER_URL
+from utils import send_message
 
 script, username, password, message = argv
-
-now = str(datetime.now())
-url = 'http://'+SERVER_URL+'/api/messages'
-payload = {"username": username, "text": message}
-headers = {'content-type': 'application/json'}
-response = requests.post(url, data=json.dumps(payload), headers=headers, auth=(username, password))
-
-# assert response.status_code == 201
+response = send_message(username, password, message)
 print(response.json())

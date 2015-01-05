@@ -2,8 +2,19 @@
 
 from werkzeug import check_password_hash, generate_password_hash
 from models import User, Message, db
-
 from authentication import SECRET_KEY
+from utils import follow
+from utils import send_message
+
+# delete all Users / Messages
+print "About to drop all tables.."
+db.drop_all()
+db.session.commit()
+print "Done."
+
+print "Re-creating the model tables..."
+db.create_all()
+print "Done."
 
 # id, username, password, e-mail, care-giver, care-seeker, full_name, current_location, avatar, care_type
 
@@ -39,7 +50,7 @@ conceicao = User('conceicao', 'conceicao', 'magna.et.ipsum@sit.org', 0, 1, 'Mari
 rosa = User('rosa', 'rosa', 'scelerisque@sedleoCras.org', 0, 1, 'Rosa Maria', '37.136231, -8.015676', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'fit old lady, very active')
 
 # save it
-print "saving to database... "
+print "Saving dummy users to database... "
 db.session.add(laurinda)
 db.session.add(octavio)
 db.session.add(filipe)
@@ -50,9 +61,33 @@ db.session.add(rosa)
 
 db.session.add(miguel)
 db.session.add(joana)
-print "done."
+
+db.session.commit()
+print "Done."
+
+
+print "Now creating some follower/followed relationships..."
+# make miguel follow the men
+# python test_follow_feed.py care_seeker care_giver password_for_care_giver
+
+follow('octavio', 'miguel', 'miguel')
+follow('filipe', 'miguel', 'miguel')
+follow('tomas', 'miguel', 'miguel')
+ 
+# make joana follow the women
+# python test_follow_feed.py care_seeker care_giver password_for_care_giver
+follow('laurinda', 'joana', 'joana')
+follow('maria', 'joana', 'joana')
+follow('conceicao', 'joana', 'joana')
+follow('rosa', 'joana', 'joana')
+ 
+# send some alert messages
+send_message('octavio', 'octavio', 'I fell from my bed, I need help')
+send_message('maria', 'maria', 'I cant eat on my own, help me please')
+send_message('rosa', 'rosa', 'I want to do some exercise, will somebody assist me?')
+print "Done."
 
 # commit changes
-print "committing changes... "
+print "Finally committing changes... "
 db.session.commit()
-print "done."
+print "All done."
