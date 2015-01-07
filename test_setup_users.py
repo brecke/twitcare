@@ -25,7 +25,7 @@ miguel = User('miguel',
                 1,
                 0,
                 'Miguel Laginha',
-                '37.136231, -8.015676',
+                '40.205063, -8.407469',
                 'http://www.womenshealthmag.com/files/images/0511-doctor-0460.jpg', '')
 
 # joana is a nurse
@@ -35,19 +35,19 @@ joana = User('joana',
                 1,
                 0,
                 'Joana Fernandes',
-                '37.136231, -8.015676',
+                '40.209053, -8.424377',
                 'http://www.1stdoctor.com/wp-content/uploads/2013/11/woman_doctor_02.png', '')
 
 # old woman face: http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg
 # old man face: http://fc03.deviantart.net/fs71/i/2013/009/e/2/old_man_by_lash_upon_lash-d5j71hq.jpg
 
-laurinda = User('laurinda', 'laurinda', 'quis@adipiscing.edu', 0, 1, 'Laurinda Silva', '37.136231, -8.015676', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'needs attention, mentally stable')
-octavio = User('octavio', 'octavio', 'tellus@aliquam.net', 0, 1, 'Octavio Ferreira', '37.136231, -8.015676', 'http://fc03.deviantart.net/fs71/i/2013/009/e/2/old_man_by_lash_upon_lash-d5j71hq.jpg', 'phisically unstable')
-filipe = User('filipe', 'filipe', 'cursus@luctus.com', 0, 1, 'Filipe Gomes', '37.136231, -8.015676', 'http://fc03.deviantart.net/fs71/i/2013/009/e/2/old_man_by_lash_upon_lash-d5j71hq.jpg', 'alzheimer\'s disease')
-tomas = User('tomas', 'tomas', 'arcu@variusorci.edu', 0, 1, 'Tomas Luiz', '37.136231, -8.015676', 'http://fc03.deviantart.net/fs71/i/2013/009/e/2/old_man_by_lash_upon_lash-d5j71hq.jpg', 'healthy bloke, lives alone')
-maria = User('maria', 'maria', 'vulputate@vulputate.edu', 0, 1, 'Maria Alice', '37.136231, -8.015676', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'parkinson\'s disease')
-conceicao = User('conceicao', 'conceicao', 'magna.et.ipsum@sit.org', 0, 1, 'Maria da Conceicao', '37.136231, -8.015676', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'fragile who seeks care, lives alone')
-rosa = User('rosa', 'rosa', 'scelerisque@sedleoCras.org', 0, 1, 'Rosa Maria', '37.136231, -8.015676', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'fit old lady, very active')
+laurinda = User('laurinda', 'laurinda', 'quis@adipiscing.edu', 0, 1, 'Laurinda Silva', '40.180198, -8.396268', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'needs attention, mentally stable')
+octavio = User('octavio', 'octavio', 'tellus@aliquam.net', 0, 1, 'Octavio Ferreira', '40.186378, -8.411020', 'http://fc03.deviantart.net/fs71/i/2013/009/e/2/old_man_by_lash_upon_lash-d5j71hq.jpg', 'phisically unstable')
+filipe = User('filipe', 'filipe', 'cursus@luctus.com', 0, 1, 'Filipe Gomes', '40.191484, -8.419732', 'http://fc03.deviantart.net/fs71/i/2013/009/e/2/old_man_by_lash_upon_lash-d5j71hq.jpg', 'alzheimer\'s disease')
+tomas = User('tomas', 'tomas', 'arcu@variusorci.edu', 0, 1, 'Tomas Luiz', '40.192148, -8.417468', 'http://fc03.deviantart.net/fs71/i/2013/009/e/2/old_man_by_lash_upon_lash-d5j71hq.jpg', 'healthy bloke, lives alone')
+maria = User('maria', 'maria', 'vulputate@vulputate.edu', 0, 1, 'Maria Alice', '40.194787, -8.419356', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'parkinson\'s disease')
+conceicao = User('conceicao', 'conceicao', 'magna.et.ipsum@sit.org', 0, 1, 'Maria da Conceicao', '40.200507, -8.407308', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'fragile who seeks care, lives alone')
+rosa = User('rosa', 'rosa', 'scelerisque@sedleoCras.org', 0, 1, 'Rosa Maria', '40.205063, -8.407469', 'http://slodive.com/wp-content/uploads/2013/04/short-hair-styles-for-older-women/cheerful-old-woman.jpg', 'fit old lady, very active')
 
 # save it
 print "Saving dummy users to database... "
