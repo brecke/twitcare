@@ -8,5 +8,5 @@ from sys import argv
 from utils import follow
 
 script, care_seeker_username, username, password = argv
-response = go(care_seeker_username, username, password)
+response = follow(care_seeker_username, username, password)
 print(response)
