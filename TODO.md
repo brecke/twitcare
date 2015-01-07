@@ -7,8 +7,9 @@
 - -Integration with Stream API service-
 - -New fields for care takers: full name, localisation, avatar-
 - -New fields for care seekers: localisation, type of care, avatar, full name
+- -Location parameter in tweets plus distance sorting-
+
 - Mobile app
 - Take / claim help request
-- Distance sorting
 - Push notifications
 - Evida integration (users api)
