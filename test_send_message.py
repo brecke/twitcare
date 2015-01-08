@@ -1,7 +1,7 @@
 #
-# Usage: python test_red_button.py username password <message>
+# Usage: python test_send_message.py username password <message>
 #
-# Example: python test_red_button.py laurinda laurinda "help me please"
+# Example: python test_send_message.py laurinda laurinda "help me please"
 #
 
 from sys import argv
