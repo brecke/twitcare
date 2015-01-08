@@ -9,6 +9,7 @@
 - -New fields for care seekers: localisation, type of care, avatar, full name
 - -Location parameter in tweets plus distance sorting-
 
+- Move keys, secrets and tokens to env vars
 - Mobile app
 - Take / claim help request
 - Push notifications
