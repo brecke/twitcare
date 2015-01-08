@@ -11,6 +11,13 @@ def send_message(username, password, message):
 	response = requests.post(url, data=json.dumps(payload), headers=headers, auth=(username, password))
 	return response
 	
+def claim_message(message_id, username, password):
+	url = 'http://'+SERVER_URL+'/api/claims/{}'.format(message_id)
+	print "url: ", url
+	headers = {'content-type': 'application/json'}
+	response = requests.post(url, headers=headers, auth=(username, password))
+	return response
+	
 def follow(care_seeker_username, username, password):
 	url = 'http://'+SERVER_URL+'/api/subscription'
 	payload = {"care_seeker_username": care_seeker_username}
