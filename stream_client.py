@@ -1,5 +1,5 @@
 import stream
+import os
+from app import app
 
-API_KEY = ''
-API_SECRET = ''
-client = stream.connect(API_KEY, API_SECRET)
+client = stream.connect(app.config['API_KEY'], app.config['API_SECRET'])

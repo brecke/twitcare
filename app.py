@@ -21,6 +21,10 @@ else:
 # create our little application :)
 app = Flask(__name__)
 app.config.from_object(__name__)
-app.config.from_envvar('MINITWIT_SETTINGS', silent=True)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+app.config['GOOGLE_KEY'] = os.environ['GOOGLE_KEY']
+app.config['API_KEY'] = os.environ['API_KEY']
+app.config['API_SECRET'] = os.environ['API_SECRET']
+app.config['SERVER_URL'] = os.environ['SERVER_URL']
 app.secret_key = 'badjouras'

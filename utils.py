@@ -1,7 +1,9 @@
 import json
 import requests
 from datetime import datetime
-from server import SERVER_URL
+from app import app
+
+SERVER_URL = app.config['SERVER_URL']
 
 def send_message(username, password, message):
 	now = str(datetime.now())

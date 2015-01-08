@@ -35,15 +35,11 @@ def post_create_message(result, **kw):
     author = User.query.filter_by(id=author_id).first()
     author_location = author.current_location
     user_feed = client.feed('user:'+str(author_id))
-    
     tweet = result.get('text')
     message_id = result.get('message_id')
     
     # list of the given feed's followers
     author_followers = user_feed.followers()
-    
-    # debug printing
-    # print "%s (from %s) is sending messages..." % (author.full_name, author_location)
     
     # send activity individually because of the costumized message
     for each_follower in author_followers.get('results'):
@@ -55,7 +51,7 @@ def post_create_message(result, **kw):
         follower_location = follower.current_location
         
         # use google distance API to get driving distance between care seeker and carer
-        key = ''
+        key = app.config['GOOGLE_KEY']
         response = requests.get('https://maps.googleapis.com/maps/api/distancematrix/json?key=' + key + '+&origins=' + follower_location +'&destinations=' + author_location)
         data = response.json()
         
