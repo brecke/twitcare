@@ -8,9 +8,8 @@
 - -New fields for care takers: full name, localisation, avatar-
 - -New fields for care seekers: localisation, type of care, avatar, full name
 - -Location parameter in tweets plus distance sorting-
-
-- Move keys, secrets and tokens to env vars
+- -Move keys, secrets and tokens to env vars-
+- -Take / claim help request-
 - Mobile app
-- Take / claim help request
 - Push notifications
 - Evida integration (users api)
