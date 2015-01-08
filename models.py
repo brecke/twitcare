@@ -67,5 +67,14 @@ class Message(db.Model):
 
     def __repr__(self):
         return '%s said %s' %(self.author_id, self.text)
+        
+    @property
+    def author(self):
+        user = User.query.filter_by(id=self.author_id).first()
+        if user:
+            return user
+        else:
+            return None
+        
 
 db.create_all()
