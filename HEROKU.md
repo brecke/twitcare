@@ -11,6 +11,10 @@ Then run the init or upgrade procedure:
 
 ```
 heroku run init
+heroku config:set GOOGLE_KEY=
+heroku config:set API_KEY=
+heroku config:set API_SECRET=
+heroku config:set SERVER_URL=twitcare.herokuapp.com
 ```
 
 To debug:
