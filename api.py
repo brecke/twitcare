@@ -29,16 +29,18 @@ def replace_username_for_author_id(data=None, **kw):
 
 # postprocessor
 def post_create_message(result, **kw):
+    
     # get the feed for the message author
     author_id = result.get('author_id')
     author = User.query.filter_by(id=author_id).first()
     author_location = author.current_location
     user_feed = client.feed('user:'+str(author_id))
+    
     tweet = result.get('text')
-    object = result.get('message_id')
+    message_id = result.get('message_id')
     
     # list of the given feed's followers
-    author_followers = user_feed.followers(offset=0, limit=10)
+    author_followers = user_feed.followers()
     
     # debug printing
     # print "%s (from %s) is sending messages..." % (author.full_name, author_location)
@@ -56,8 +58,7 @@ def post_create_message(result, **kw):
         key = ''
         response = requests.get('https://maps.googleapis.com/maps/api/distancematrix/json?key=' + key + '+&origins=' + follower_location +'&destinations=' + author_location)
         data = response.json()
-        # pp = pprint.PrettyPrinter(indent=4)
-        # pp.pprint(data)
+        
         if data.get('status') == 'OK':
             duration = data.get('rows')[0].get('elements')[0].get('duration')
             print "====> %s would take %s to rescue %s" % (follower.full_name, duration.get('text'), author.full_name)
@@ -69,8 +70,9 @@ def post_create_message(result, **kw):
         followers.append(follower_feed)
         activity = {
             'actor': author_id, 
-            'verb': 'tweet', 
-            'object': object, 
+            'verb': 'tweet',
+            'object':message_id,
+            'foreign_id':message_id,
             'tweet': tweet, 
             'geolocation':author.current_location,
             'duration': duration.get('text'),
