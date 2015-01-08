@@ -80,11 +80,13 @@ follow('laurinda', 'joana', 'joana')
 follow('maria', 'joana', 'joana')
 follow('conceicao', 'joana', 'joana')
 follow('rosa', 'joana', 'joana')
+
+follow('filipe', 'joana', 'joana')
  
 # send some alert messages
-send_message('octavio', 'octavio', 'I fell from my bed, I need help')
-send_message('maria', 'maria', 'I cant eat on my own, help me please')
-send_message('rosa', 'rosa', 'I want to do some exercise, will somebody assist me?')
+# send_message('octavio', 'octavio', 'I fell from my bed, I need help')
+# send_message('maria', 'maria', 'I cant eat on my own, help me please')
+# send_message('rosa', 'rosa', 'I want to do some exercise, will somebody assist me?')
 print "Done."
 
 # commit changes
