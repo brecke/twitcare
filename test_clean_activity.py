@@ -9,9 +9,8 @@ for user in users:
 		followed_feeds = feed.following()
 		for followed_feed in followed_feeds.get('results'):
 			target = followed_feed.get('target_id')
-			
-			param1 = target.split(':')[0]
-			param2 = target.split(':')[-1]
+			# param1 = target.split(':')[0]
+			# param2 = target.split(':')[-1]
 			print "Unfollowing ", target
 			feed.unfollow(target) 
 			
