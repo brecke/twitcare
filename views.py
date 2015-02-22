@@ -11,7 +11,7 @@ from collections import namedtuple
 from flask_cors import *
 
 @app.route('/api/follow/<int:seeker_id>', methods=['PUT'])
-def follow():
+def follow_feed():
     if not check_auth(request):
         return Response(status=403)
     
@@ -23,7 +23,7 @@ def follow():
     return Response(status=200)
 
 @app.route('/api/unfollow/<int:seeker_id>', methods=['PUT'])
-def unfollow():
+def unfollow_feed():
     if not check_auth(request):
         return Response(status=403)
 
