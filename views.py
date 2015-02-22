@@ -1,5 +1,4 @@
 from app import app
-from stream_client import client
 from flask import request, Response
 from flask_login import *
 from flask.ext.security import login_required, LoginForm
@@ -10,6 +9,22 @@ from stream_client import client
 import json
 from collections import namedtuple
 from flask_cors import *
+
+@app.route('/api/following', methods=['GET'])
+def following():
+    
+    if not check_auth(request):
+        return Response(status=403)
+    
+    # get the carer profile
+    user = load_user_from_request(request)
+    
+    # get the care seekers that I am following
+    user_feed = client.feed('notification:'+str(user.id))
+    care_seekers = user_feed.following()
+    
+    return Response(json.dumps(care_seekers),  mimetype='application/json', status=200)  
+    
 
 @app.route('/api/subscription', methods=['POST', 'DELETE'])
 def follow():
