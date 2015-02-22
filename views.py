@@ -10,6 +10,26 @@ import json
 from collections import namedtuple
 from flask_cors import *
 
+@app.route('/api/follow/<int:seeker_id>', methods=['PUT'])
+def follow():
+    if not check_auth(request):
+        return Response(status=403)
+    
+    # get the carer profile
+    user = load_user_from_request(request)
+    user_feed = client.feed('notification:'+str(user.id))
+    user_feed.follow('user', str(seeker_id))
+
+@app.route('/api/unfollow/<int:seeker_id>', methods=['PUT'])
+def follow():
+    if not check_auth(request):
+        return Response(status=403)
+
+    # get the carer profile
+    user = load_user_from_request(request)
+    user_feed = client.feed('notification:'+str(user.id))
+    user_feed.unfollow('user', str(seeker_id))
+
 @app.route('/api/following', methods=['GET'])
 def following():
     
