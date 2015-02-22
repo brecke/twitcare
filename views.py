@@ -21,7 +21,7 @@ def follow():
     user_feed.follow('user', str(seeker_id))
 
 @app.route('/api/unfollow/<int:seeker_id>', methods=['PUT'])
-def follow():
+def unfollow():
     if not check_auth(request):
         return Response(status=403)
 
