@@ -9,6 +9,19 @@ from stream_client import client
 import json
 from collections import namedtuple
 from flask_cors import *
+from utils import default
+
+@app.route('/api/activities', methods=['GET'])
+def get_activities():
+    if not check_auth(request):
+        return Response(status=403)
+    
+    # get the carer profile
+    user = load_user_from_request(request)
+    user_feed = client.feed('notification:'+str(user.id))
+    result = user_feed.get()
+    result = json.dumps(result, default=default)
+    return Response(result, mimetype='application/json', status=200)
 
 @app.route('/api/follow/<int:seeker_id>', methods=['PUT'])
 def follow_feed(seeker_id):
@@ -51,7 +64,6 @@ def following():
     
     return Response(json.dumps(care_seekers),  mimetype='application/json', status=200)  
     
-
 @app.route('/api/subscription', methods=['POST', 'DELETE'])
 def follow():
     # first authenticate the follower, otherwise raise 401

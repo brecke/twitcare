@@ -32,4 +32,16 @@ def following(username, password):
 	user_feed = client.feed('notification:9')
 	care_seekers = user_feed.following()
 	return care_seekers
-	
+
+def default(obj):
+	"""Default JSON serializer."""
+	import calendar, datetime
+
+	if isinstance(obj, datetime.datetime):
+		if obj.utcoffset() is not None:
+			obj = obj - obj.utcoffset()
+	millis = int(
+		calendar.timegm(obj.timetuple()) * 1000 +
+		obj.microsecond / 1000
+	)
+	return millis

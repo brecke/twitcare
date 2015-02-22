@@ -59,9 +59,13 @@ def post_create_message(result, **kw):
             duration = data.get('rows')[0].get('elements')[0].get('duration')
             print "====> %s would take %s to rescue %s" % (follower.full_name, duration.get('text'), author.full_name)
         else:
-            duration = -1
-            print "Cannot contact Google to calculate distance... moving on with -1"
+            duration = None
+            print "Cannot contact Google to calculate distance... moving on with None"
         
+        if duration is None:
+            duration_text = ''
+        else:
+            duration_text = duration.get('text')
         followers = []
         followers.append(follower_feed)
         activity = {
@@ -71,7 +75,7 @@ def post_create_message(result, **kw):
             'foreign_id':message_id,
             'tweet': tweet, 
             'geolocation':author.current_location,
-            'duration': duration.get('text'),
+            'duration': duration_text,
             'to':followers
         }
         

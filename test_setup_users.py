@@ -70,6 +70,7 @@ print "Now creating some follower/followed relationships..."
 # make miguel follow the men
 # python test_follow_feed.py care_seeker care_giver password_for_care_giver
 
+follow('laurinda', 'miguel', 'miguel')
 follow('octavio', 'miguel', 'miguel')
 follow('filipe', 'miguel', 'miguel')
 follow('tomas', 'miguel', 'miguel')
@@ -80,8 +81,6 @@ follow('laurinda', 'joana', 'joana')
 follow('maria', 'joana', 'joana')
 follow('conceicao', 'joana', 'joana')
 follow('rosa', 'joana', 'joana')
-
-follow('filipe', 'joana', 'joana')
  
 # send some alert messages
 # send_message('octavio', 'octavio', 'I fell from my bed, I need help')
