@@ -2,6 +2,7 @@ import json
 import requests
 from datetime import datetime
 from app import app
+from stream_client import client
 
 SERVER_URL = app.config['SERVER_URL']
 
@@ -25,3 +26,10 @@ def follow(care_seeker_username, username, password):
 	payload = {"care_seeker_username": care_seeker_username}
 	response = requests.post(url, data=payload, auth=(username, password))
 	return response
+	
+def following(username, password):
+	url = 'http://'+SERVER_URL+'/api/following'
+	user_feed = client.feed('notification:9')
+	care_seekers = user_feed.following()
+	return care_seekers
+	
