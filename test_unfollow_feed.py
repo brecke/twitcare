@@ -9,10 +9,9 @@ import json
 from datetime import datetime
 from sys import argv
 
-script, care_seeker_username, username, password = argv
+script, id, username, password = argv
 
-url = 'http://localhost:5000/api/subscription'
-payload = {"care_seeker_username": care_seeker_username}
-response = requests.delete(url, data=payload, auth=(username, password))
+url = 'http://localhost:5000/api/unfollow/'+id
+response = requests.put(url, auth=(username, password))
 
 print(response)

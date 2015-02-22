@@ -18,19 +18,21 @@ def follow_feed(seeker_id):
     # get the carer profile
     user = load_user_from_request(request)
     user_feed = client.feed('notification:'+str(user.id))
-    user_feed.follow('user', str(seeker_id))
+    user_feed.follow('user:'+str(seeker_id))
     
     return Response(status=200)
 
 @app.route('/api/unfollow/<int:seeker_id>', methods=['PUT'])
 def unfollow_feed(seeker_id):
+    
     if not check_auth(request):
         return Response(status=403)
 
     # get the carer profile
     user = load_user_from_request(request)
     user_feed = client.feed('notification:'+str(user.id))
-    user_feed.unfollow('user', str(seeker_id))
+    
+    user_feed.unfollow('user:'+str(seeker_id))
     
     return Response(status=200)
 
