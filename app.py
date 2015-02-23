@@ -27,4 +27,10 @@ app.config['GOOGLE_KEY'] = os.environ['GOOGLE_KEY']
 app.config['API_KEY'] = os.environ['API_KEY']
 app.config['API_SECRET'] = os.environ['API_SECRET']
 app.config['SERVER_URL'] = os.environ['SERVER_URL']
+
+# pusher
+app.config['PUSHER_APP_ID'] = os.environ['PUSHER_APP_ID']
+app.config['PUSHER_KEY'] = os.environ['PUSHER_KEY']
+app.config['PUSHER_SECRET'] = os.environ['PUSHER_SECRET']
+
 app.secret_key = 'badjouras'
