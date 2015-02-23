@@ -7,6 +7,7 @@ from flask.ext.login import current_user
 from flask.ext.restless import ProcessingException
 from authentication import check_auth
 from flask import request, abort
+from realtime import send_push
 import json
 import requests
 import pprint
@@ -82,6 +83,9 @@ def post_create_message(result, **kw):
         # add specific "TO" notifications, one by one
         activity_response = user_feed.add_activity(activity)
         # print "Posting feedback: ", activity_response
+        
+        # send push notifications
+        send_push(activity)
     
 # Create the Flask-Restless API manager.
 manager = APIManager(app, flask_sqlalchemy_db=db)
