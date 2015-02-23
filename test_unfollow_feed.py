@@ -11,7 +11,7 @@ from sys import argv
 
 script, id, username, password = argv
 
-url = 'http://localhost:5000/api/unfollow/'+id
+url = 'http://'+app.config['SERVER_URL']+'/api/unfollow/'+id
 response = requests.put(url, auth=(username, password))
 
 print(response)
