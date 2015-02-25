@@ -3,6 +3,7 @@
 import requests
 import json
 from sys import argv
+from app import app
 
 script, user, password = argv
 
