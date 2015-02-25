@@ -15,10 +15,11 @@ heroku config:set GOOGLE_KEY=
 heroku config:set API_KEY=
 heroku config:set API_SECRET=
 heroku config:set SERVER_URL=twitcare.herokuapp.com
+...
 ```
 
 To debug:
 
 ```
-heroku logs
+heroku logs --tail
 ```
