@@ -19,6 +19,7 @@
 - Mobile app
   - Claim
 - Push using pusherapp
+- Send message through jasper via audio
 
 ## Wishful thinking:
 
