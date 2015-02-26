@@ -11,6 +11,7 @@ from realtime import send_push
 import json
 import requests
 import pprint
+from random import randint
 
 # preprocessor
 def auth_func(*args, **kwargs):
@@ -61,10 +62,10 @@ def post_create_message(result, **kw):
             print "====> %s would take %s to rescue %s" % (follower.full_name, duration.get('text'), author.full_name)
         else:
             duration = None
-            print "Cannot contact Google to calculate distance... moving on with None"
+            print "Cannot contact Google to calculate distance... moving on with random"
         
         if duration is None:
-            duration_text = ''
+            duration_text = "{} mins".format(randint(2,9))
         else:
             duration_text = duration.get('text')
         followers = []
