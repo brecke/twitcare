@@ -10,6 +10,7 @@ import json
 from collections import namedtuple
 from flask_cors import *
 from utils import default
+from realtime import send_push
 
 @app.route('/api/activities', methods=['GET'])
 def get_activities():
@@ -134,6 +135,9 @@ def claim(message_id):
             # add specific "TO" notifications, one by one
             # print "Adding activity to ", followers
             activity_response = notification_feed.add_activity(activity)
+            
+            # send push notifications
+            send_push(activity)
     
     return Response(status=201)
 

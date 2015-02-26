@@ -10,8 +10,8 @@ def send_push(activity):
   		secret=app.config['PUSHER_SECRET']
 	)
 	
-	print json.dumps(activity)
+	print "pushing to channel tweetcare:{}".format(activity.get('actor'))
 
-	p['tweetcare'].trigger('help_request', json.dumps(activity))
+	p["tweetcare:{}".format(activity.get('actor'))].trigger('help_request', json.dumps(activity))
 	
 	
