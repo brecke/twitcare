@@ -86,7 +86,7 @@ def post_create_message(result, **kw):
         # print "Posting feedback: ", activity_response
         
         # send push notifications
-        send_push(activity)
+        send_push(activity, follower_id)
     
 # Create the Flask-Restless API manager.
 manager = APIManager(app, flask_sqlalchemy_db=db)

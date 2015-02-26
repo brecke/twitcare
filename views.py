@@ -137,7 +137,7 @@ def claim(message_id):
             activity_response = notification_feed.add_activity(activity)
             
             # send push notifications
-            send_push(activity)
+            send_push(activity, follower_id)
     
     return Response(status=201)
 
