@@ -10,6 +10,8 @@ def send_push(activity):
   		secret=app.config['PUSHER_SECRET']
 	)
 	
+	print json.dumps(activity)
+
 	p['tweetcare'].trigger('help_request', json.dumps(activity))
 	
 	
