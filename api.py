@@ -11,6 +11,7 @@ from realtime import send_push
 import json
 import requests
 import pprint
+import operator
 from random import randint
 
 # preprocessor
@@ -43,6 +44,7 @@ def post_create_message(result, **kw):
     # list of the given feed's followers
     author_followers = user_feed.followers()
     
+    compared_distances = {}
     # send activity individually because of the costumized message
     for each_follower in author_followers.get('results'):
         
@@ -68,6 +70,27 @@ def post_create_message(result, **kw):
             duration_text = "{} mins".format(randint(2,9))
         else:
             duration_text = duration.get('text')
+            
+        compared_distances[follower_id] = duration_text
+        
+    # print compared_distances
+    sorted_distances = sorted(compared_distances.items(), key=operator.itemgetter(1))
+    # print sorted_distances
+        
+    for index, distance in enumerate(sorted_distances):
+        distance_text = distance[1] + " (there are {} carers closer than you)".format(index)
+        compared_distances[distance[0]] = distance_text
+    
+    # print compared_distances
+                
+    for each_follower in author_followers.get('results'):
+        
+        # get the data from each follower
+        follower_feed = each_follower.get('feed_id')
+        follower_id = follower_feed.split(':')[-1]
+        follower = User.query.filter_by(id=follower_id).first()
+        follower_location = follower.current_location
+        
         followers = []
         followers.append(follower_feed)
         activity = {
@@ -77,7 +100,7 @@ def post_create_message(result, **kw):
             'foreign_id':message_id,
             'tweet': tweet, 
             'geolocation':author.current_location,
-            'duration': duration_text,
+            'duration': compared_distances[follower_id],
             'to':followers
         }
         
